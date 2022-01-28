@@ -124,13 +124,15 @@ const Develop = {
     try {
       disconnect = await this.connect(options);
     } catch (_error) {
-      console.log("CONNECT-OR-START ERROR PATH: %O", _error);
       await this.start(ipcNetwork, ganacheOptions);
       options.retry = true;
       disconnect = await this.connect(options);
       started = true;
     } finally {
-      return { disconnect, started };
+      return {
+        disconnect,
+        started
+      };
     }
   }
 };
