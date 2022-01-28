@@ -51,4 +51,4 @@ describe("connectOrStart test network", async function () {
       }
     }
   });
-});
+}).timeout(10000);
