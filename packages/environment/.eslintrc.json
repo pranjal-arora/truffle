@@ -1,0 +1,6 @@
+{
+    "extends": ["../../.eslintrc.package.json"],
+    "globals": {
+        "BUNDLE_CHAIN_FILENAME": "readonly"
+    }
+}
