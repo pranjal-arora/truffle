@@ -29,14 +29,10 @@ describe("Environment develop", function () {
         gas: expectedNetwork.gas
       }
     };
+  });
+
+  it("Environment.develop overwrites the network_id of the network", async function () {
     sinon.stub(Environment, "detect");
-  });
-
-  afterEach("Restore Environment detect", async function () {
-    Environment.detect.restore();
-  });
-
-  it("Environment.develop overwrites the network_id of the network", async function() {
     await Environment.develop(config, testOptions);
     const mutatedNetwork = config.networks[config.network];
 
@@ -56,5 +52,4 @@ describe("Environment develop", function () {
       "The gas of the network should be unchanged."
     );
   });
-
 }).timeout(10000);
